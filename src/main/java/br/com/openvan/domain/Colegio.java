@@ -20,7 +20,6 @@ public class Colegio implements Serializable{
 	@Column(name = "clgid", nullable = false)
 	private Long id;
 	
-
 	// Indentificar se a escola eh de rede publica, privada, ...
 	@Column(name = "clgrede", nullable = false, length = 12)
 	private String rede;
