@@ -62,6 +62,10 @@ public class Aluno implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "alncolegio")
 	private Colegio colegio;
+	
+	@ManyToOne
+	@JoinColumn(name = "alnveiculo")
+	private Veiculo veiculo;
 
 	public Aluno() {
 

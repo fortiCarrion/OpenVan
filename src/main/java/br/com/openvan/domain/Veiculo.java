@@ -2,12 +2,14 @@ package br.com.openvan.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -42,6 +44,9 @@ public class Veiculo implements Serializable {
 	@Column(name = "velregistro", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date registro;
+	
+	@OneToMany(mappedBy = "veiculo")
+	private List<Aluno> alunos;
 
 	public Veiculo() {
 
