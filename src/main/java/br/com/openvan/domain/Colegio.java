@@ -1,7 +1,9 @@
 package br.com.openvan.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,41 +14,42 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Colegio implements Serializable{
+public class Colegio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "clgid", nullable = false)
 	private Long id;
-	
+
 	// Indentificar se a escola eh de rede publica, privada, ...
 	@Column(name = "clgrede", nullable = false, length = 12)
 	private String rede;
-	
+
 	@Column(name = "clgnome", nullable = false, length = 50)
 	private String nome;
-	
+
 	@Column(name = "clgendereco", nullable = false, length = 50)
 	private String endereco;
-	
+
 	@Column(name = "clgnumero", nullable = false, length = 5)
 	private int numero;
-	
+
 	@Column(name = "clgtelefone", nullable = true, length = 12)
 	private String telefone;
-	
+
 	@Column(name = "clgwebsite", nullable = true, length = 50)
 	private String website;
-	
+
 	@Column(name = "clgdataregistro", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date registro;
-	
+
+//	private List<Aluno> alunos = new ArrayList<>();
+
 	public Colegio() {
-		
+
 	}
-	
 
 	public Colegio(Long id, String rede, String nome, String endereco, int numero, String telefone, String website,
 			Date registro) {
@@ -60,8 +63,6 @@ public class Colegio implements Serializable{
 		this.website = website;
 		this.registro = registro;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -126,7 +127,15 @@ public class Colegio implements Serializable{
 	public void setRegistro(Date registro) {
 		this.registro = registro;
 	}
-	
+/*
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -157,7 +166,5 @@ public class Colegio implements Serializable{
 		return "Colegio [id=" + id + ", rede=" + rede + ", nome=" + nome + ", endereco=" + endereco + ", numero="
 				+ numero + ", telefone=" + telefone + ", website=" + website + ", registro=" + registro + "]";
 	}
-	
+
 }
-
-

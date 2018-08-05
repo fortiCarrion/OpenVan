@@ -25,17 +25,9 @@ public class ColegioResource {
 
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Long id) {
+		
 		Colegio obj = service.buscar(id);
 		
 		return ResponseEntity.ok().body(obj);
-		
-//		Colegio c1 = new Colegio(1L, "particular", "maxi", "av. duque caxias", 1589, "33 96559356", "https:\\www.maxi.com.br", today); 
-//		Colegio c2 = new Colegio(1L, "publica", "benetida", "av. maritacas", 125, "33 96559356", "nenhum", today); 
-		
-//		List<Colegio> lista = new ArrayList<>();
-//		lista.add(c1);
-//		lista.add(c2);
-		
-//		return lista;
 	}
 }
