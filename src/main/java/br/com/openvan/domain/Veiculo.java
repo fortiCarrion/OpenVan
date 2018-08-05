@@ -1,6 +1,7 @@
 package br.com.openvan.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class Veiculo implements Serializable {
 	private Date registro;
 	
 	@OneToMany(mappedBy = "veiculo")
-	private List<Aluno> alunos;
+	private List<Aluno> alunos = new ArrayList<>();
 
 	public Veiculo() {
 
