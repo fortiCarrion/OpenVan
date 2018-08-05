@@ -44,9 +44,11 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null , today);
 		
 		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo", "NOTURNO" , "43 96559384", "ATIVO", "Esta doente só volta dia 15/08", 100.00f, 5, today, c1, v2);
+		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", "MATUTINO" , "43 96559384", "ATIVO", null, 95.50f, 10, today, c2, v2);
+		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", "NOTURNO" , "43 96559384", "ATIVO", null, 95.99f, 5, today, c1, v2);
 		
 		colegioRepository.saveAll(Arrays.asList(c1, c2));
 		veiculoRepository.saveAll(Arrays.asList(v1, v2));
-		alunoRepository.saveAll(Arrays.asList(a1));
+		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 	}
 }
