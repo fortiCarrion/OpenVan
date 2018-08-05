@@ -49,11 +49,10 @@ public class Aluno implements Serializable {
 	private String recado;
 
 	@Column(name = "alnvalor", nullable = false, precision = 4, scale = 2)
-	private Integer valor;
+	private float valor;
 
 	@Column(name = "alnvencimento", nullable = false)
-	@Temporal(TemporalType.DATE)
-	private Date vencimentoMensalidade;
+	private int vencimentoMensalidade;
 
 	@Column(name = "alnregistro", nullable = false)
 	@Temporal(TemporalType.DATE)
@@ -72,7 +71,7 @@ public class Aluno implements Serializable {
 	}
 
 	public Aluno(Long id, String nome, String pai, String mae, String periodo, String celular, String status,
-			String recado, Integer valor, Date vencimentoMensalidade, Date registro) {
+			String recado, float valor, int vencimentoMensalidade, Date registro, Colegio colegio, Veiculo veiculo) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -85,7 +84,10 @@ public class Aluno implements Serializable {
 		this.valor = valor;
 		this.vencimentoMensalidade = vencimentoMensalidade;
 		this.registro = registro;
+		this.colegio = colegio;
+		this.veiculo = veiculo;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -151,19 +153,19 @@ public class Aluno implements Serializable {
 		this.recado = recado;
 	}
 
-	public Integer getValor() {
+	public float getValor() {
 		return valor;
 	}
 
-	public void setValor(Integer valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 
-	public Date getVencimentoMensalidade() {
+	public int getVencimentoMensalidade() {
 		return vencimentoMensalidade;
 	}
 
-	public void setVencimentoMensalidade(Date vencimentoMensalidade) {
+	public void setVencimentoMensalidade(int vencimentoMensalidade) {
 		this.vencimentoMensalidade = vencimentoMensalidade;
 	}
 
