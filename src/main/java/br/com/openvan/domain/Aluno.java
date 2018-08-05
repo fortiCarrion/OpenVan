@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -56,6 +58,10 @@ public class Aluno implements Serializable {
 	@Column(name = "alnregistro", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date registro;
+	
+	@ManyToOne
+	@JoinColumn(name = "alncolegio")
+	private Colegio colegio;
 
 	public Aluno() {
 
