@@ -40,7 +40,7 @@ public class Aluno implements Serializable {
 	@Column(name = "alnperiodo", nullable = false, length = 12)
 	private String periodo;
 
-	@Column(name = "alncelular", nullable = true, length = 12)
+	@Column(name = "alncelular", nullable = true, length = 16)
 	private String celular;
 
 	@Column(name = "alnstatus", nullable = false, length = 12)
