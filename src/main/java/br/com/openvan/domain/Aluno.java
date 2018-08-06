@@ -70,6 +70,10 @@ public class Aluno implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Endereco> enderecos = new ArrayList<>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "aluno")
+	private List<Contato> contatos = new ArrayList<>();
 
 	public Aluno() {
 
@@ -188,6 +192,14 @@ public class Aluno implements Serializable {
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+
+	public List<Contato> getContatos() {
+		return contatos;
+	}
+
+	public void setContatos(List<Contato> contatos) {
+		this.contatos = contatos;
 	}
 
 	@Override

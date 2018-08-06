@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -32,6 +34,7 @@ public class Contato implements Serializable{
 	@Column(name = "conresidencial", nullable = true, length = 16)
 	private String residencial;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "conaluno")
 	private Aluno aluno;

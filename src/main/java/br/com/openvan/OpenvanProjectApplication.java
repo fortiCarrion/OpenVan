@@ -10,10 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.openvan.domain.Aluno;
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.domain.Contato;
 import br.com.openvan.domain.Endereco;
 import br.com.openvan.domain.Veiculo;
 import br.com.openvan.repositories.AlunoRepository;
 import br.com.openvan.repositories.ColegioRepository;
+import br.com.openvan.repositories.ContatoRepository;
 import br.com.openvan.repositories.EnderecoRepository;
 import br.com.openvan.repositories.VeiculoRepository;
 
@@ -31,6 +33,9 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private ContatoRepository contatoRepository;
 	
 	private Date today = new Date();
 
@@ -56,14 +61,24 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", a2);
 		Endereco e3 = new Endereco(null, "Av. São João", 1458, "cervejada", a3);
 		Endereco e4 = new Endereco(null, "Av. Tiradentes", 3451, "madeiro", a1);
+
+		Contato con1 = new Contato(null, "pai", "43 9655-9548", "3339-2978","3334-8958", a1);
+		Contato con2 = new Contato(null, "mãe", "43 9655-9548", "3339-2978","3334-8958", a1);
+		Contato con3 = new Contato(null, "irmão", "43 9655-9548", "3339-2978","3334-8958", a2);
+		Contato con4 = new Contato(null, "vó", "43 9655-9548", "3339-2978","3334-8958", a3);
 		
 		a1.getEnderecos().addAll(Arrays.asList(e1, e4));
 		a2.getEnderecos().addAll(Arrays.asList(e2));
 		a3.getEnderecos().addAll(Arrays.asList(e3));
+		
+		a1.getContatos().addAll(Arrays.asList(con1, con2));
+		a2.getContatos().addAll(Arrays.asList(con3));
+		a3.getContatos().addAll(Arrays.asList(con4));
 				
 		colegioRepository.saveAll(Arrays.asList(c1, c2));
 		veiculoRepository.saveAll(Arrays.asList(v1, v2));
 		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
+		contatoRepository.saveAll(Arrays.asList(con1, con2, con3, con4));
 	}
 }
