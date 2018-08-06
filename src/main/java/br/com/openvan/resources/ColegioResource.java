@@ -21,8 +21,6 @@ public class ColegioResource {
 	@Autowired
 	private ColegioService service;
 
-	private Date today = new Date();
-
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Long id) {
 		
