@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -24,10 +26,6 @@ public class Aluno implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "alnid", nullable = false)
 	private Long id;
-
-	// FK COLEGIO
-
-	// FK VEICULO
 
 	@Column(name = "alnnome", nullable = false, length = 50)
 	private String nome;
@@ -69,6 +67,7 @@ public class Aluno implements Serializable {
 	@JoinColumn(name = "alnveiculo")
 	private Veiculo veiculo;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Endereco> enderecos = new ArrayList<>();
 
