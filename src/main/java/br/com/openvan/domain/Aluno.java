@@ -1,7 +1,9 @@
 package br.com.openvan.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -65,6 +68,9 @@ public class Aluno implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "alnveiculo")
 	private Veiculo veiculo;
+	
+	@OneToMany(mappedBy = "aluno")
+	private List<Endereco> enderecos = new ArrayList<>();
 
 	public Aluno() {
 
@@ -175,6 +181,14 @@ public class Aluno implements Serializable {
 
 	public void setRegistro(Date registro) {
 		this.registro = registro;
+	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	@Override

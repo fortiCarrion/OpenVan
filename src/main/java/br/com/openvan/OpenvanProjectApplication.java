@@ -10,9 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.openvan.domain.Aluno;
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.domain.Endereco;
 import br.com.openvan.domain.Veiculo;
 import br.com.openvan.repositories.AlunoRepository;
 import br.com.openvan.repositories.ColegioRepository;
+import br.com.openvan.repositories.EnderecoRepository;
 import br.com.openvan.repositories.VeiculoRepository;
 
 @SpringBootApplication
@@ -26,6 +28,9 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private AlunoRepository alunoRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 	
 	private Date today = new Date();
 
@@ -47,8 +52,18 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", "MATUTINO" , "43 96559384", "ATIVO", null, 95.50f, 10, today, c2, v2);
 		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", "NOTURNO" , "43 96559384", "ATIVO", null, 95.99f, 5, today, c1, v2);
 		
+		Endereco e1 = new Endereco(null, "Rua Leopoldina", 579, "aeroporto", a1);
+		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", a2);
+		Endereco e3 = new Endereco(null, "Av. São João", 1458, "cervejada", a3);
+		Endereco e4 = new Endereco(null, "Av. Tiradentes", 3451, "madeiro", a1);
+		
+		a1.getEnderecos().addAll(Arrays.asList(e1, e4));
+		a2.getEnderecos().addAll(Arrays.asList(e2));
+		a3.getEnderecos().addAll(Arrays.asList(e3));
+				
 		colegioRepository.saveAll(Arrays.asList(c1, c2));
 		veiculoRepository.saveAll(Arrays.asList(v1, v2));
 		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
 	}
 }
