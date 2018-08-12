@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.openvan.domain.enums.PeriodoAluno;
@@ -58,6 +59,7 @@ public class Aluno implements Serializable {
 	@Column(name = "alnvencimento", nullable = false)
 	private int vencimentoMensalidade;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(name = "alnregistro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;

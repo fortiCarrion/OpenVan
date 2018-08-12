@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -42,6 +44,7 @@ public class Veiculo implements Serializable {
 	@Column(name = "velrecado", nullable = true, length = 150)
 	private String recado;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(name = "velregistro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;

@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.openvan.domain.enums.StatusPagamento;
 
@@ -25,6 +26,7 @@ public class Mensalidade {
 	@Column(name = "menid", nullable = false)
 	private Long id;
 	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(name = "menemissao", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date emissao;

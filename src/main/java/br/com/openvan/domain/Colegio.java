@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Colegio implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -42,6 +44,7 @@ public class Colegio implements Serializable {
 	@Column(name = "clgwebsite", nullable = true, length = 50)
 	private String website;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(name = "clgdataregistro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
