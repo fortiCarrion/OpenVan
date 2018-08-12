@@ -43,7 +43,7 @@ public class Veiculo implements Serializable {
 	private String recado;
 
 	@Column(name = "velregistro", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 	
 	@OneToMany(mappedBy = "veiculo")

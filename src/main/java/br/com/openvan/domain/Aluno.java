@@ -56,7 +56,7 @@ public class Aluno implements Serializable {
 	private int vencimentoMensalidade;
 
 	@Column(name = "alnregistro", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 	
 	@ManyToOne

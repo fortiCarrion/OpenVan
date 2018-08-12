@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import br.com.openvan.domain.enums.StatusPagamento;
+
 @Entity
 public class Mensalidade {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +26,7 @@ public class Mensalidade {
 	private Long id;
 	
 	@Column(name = "menemissao", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date emissao;
 	
 	@Column(name = "menvencimento", nullable = false)
@@ -36,7 +38,7 @@ public class Mensalidade {
 	private Date pagamento;
 	
 	@Column(name = "menstatus", nullable = false, length = 12)
-	private String status;
+	private Integer status;
 	
 	@Column(name = "menvalor", nullable = false, precision = 4, scale = 2)
 	private float valor;
@@ -51,14 +53,14 @@ public class Mensalidade {
 		
 	}
 
-	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, String status, float valor,
+	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, StatusPagamento status, float valor,
 			Aluno aluno) {
 		super();
 		this.id = id;
 		this.emissao = emissao;
 		this.vencimento = vencimento;
 		this.pagamento = pagamento;
-		this.status = status;
+		this.status = status.getCodigo();
 		this.valor = valor;
 		this.aluno = aluno;
 	}
@@ -95,12 +97,12 @@ public class Mensalidade {
 		this.pagamento = pagamento;
 	}
 
-	public String getStatus() {
-		return status;
+	public StatusPagamento getStatus() {
+		return StatusPagamento.toEnum(status);
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(StatusPagamento status) {
+		this.status = status.getCodigo();
 	}
 
 	public float getValor() {

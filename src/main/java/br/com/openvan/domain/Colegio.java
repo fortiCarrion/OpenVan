@@ -43,7 +43,7 @@ public class Colegio implements Serializable {
 	private String website;
 
 	@Column(name = "clgdataregistro", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 
 	@OneToMany(mappedBy = "colegio")
