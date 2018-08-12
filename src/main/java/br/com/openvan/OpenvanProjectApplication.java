@@ -16,6 +16,7 @@ import br.com.openvan.domain.Contato;
 import br.com.openvan.domain.Endereco;
 import br.com.openvan.domain.Mensalidade;
 import br.com.openvan.domain.Veiculo;
+import br.com.openvan.domain.enums.StatusAluno;
 import br.com.openvan.domain.enums.StatusPagamento;
 import br.com.openvan.repositories.AlunoRepository;
 import br.com.openvan.repositories.ColegioRepository;
@@ -65,11 +66,11 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
 
 		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo",
-				"NOTURNO", "43 96559384", "ATIVO", "Esta doente só volta dia 15/08", 100.00f, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
+				"NOTURNO", "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00f, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
 		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", "MATUTINO",
-				"43 96559384", "ATIVO", null, 95.50f, 10, sdf.parse("03/08/2018 13:50"), c2, v2);
+				"43 96559384", StatusAluno.ATIVO, null, 95.50f, 10, sdf.parse("03/08/2018 13:50"), c2, v2);
 		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", "NOTURNO",
-				"43 96559384", "ATIVO", null, 95.99f, 5, sdf.parse("04/08/2018 14:30"), c1, v2);
+				"43 96559384", StatusAluno.ATIVO, null, 95.99f, 5, sdf.parse("04/08/2018 14:30"), c1, v2);
 
 		Endereco e1 = new Endereco(null, "Rua Leopoldina", 579, "aeroporto", a1);
 		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", a2);

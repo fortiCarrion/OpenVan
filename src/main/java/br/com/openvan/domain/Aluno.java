@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import br.com.openvan.domain.enums.StatusAluno;
+
 @Entity
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class Aluno implements Serializable {
 	private String celular;
 
 	@Column(name = "alnstatus", nullable = false, length = 12)
-	private String status;
+	private Integer status;
 
 	@Column(name = "alnrecado", nullable = true, length = 150)
 	private String recado;
@@ -83,7 +85,7 @@ public class Aluno implements Serializable {
 
 	}
 
-	public Aluno(Long id, String nome, String pai, String mae, String periodo, String celular, String status,
+	public Aluno(Long id, String nome, String pai, String mae, String periodo, String celular, StatusAluno status,
 			String recado, float valor, int vencimentoMensalidade, Date registro, Colegio colegio, Veiculo veiculo) {
 		super();
 		this.id = id;
@@ -92,7 +94,7 @@ public class Aluno implements Serializable {
 		this.mae = mae;
 		this.periodo = periodo;
 		this.celular = celular;
-		this.status = status;
+		this.status = status.getCodigo();
 		this.recado = recado;
 		this.valor = valor;
 		this.vencimentoMensalidade = vencimentoMensalidade;
@@ -150,12 +152,12 @@ public class Aluno implements Serializable {
 		this.celular = celular;
 	}
 
-	public String getStatus() {
-		return status;
+	public StatusAluno getStatus() {
+		return StatusAluno.toEnum(status);
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(StatusAluno status) {
+		this.status = status.getCodigo();
 	}
 
 	public String getRecado() {
