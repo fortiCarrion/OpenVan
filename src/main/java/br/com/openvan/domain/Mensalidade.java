@@ -41,7 +41,7 @@ public class Mensalidade {
 	private Integer status;
 	
 	@Column(name = "menvalor", nullable = false, precision = 4, scale = 2)
-	private float valor;
+	private Double valor;
 	
 	@JsonBackReference
 	@ManyToOne
@@ -53,7 +53,7 @@ public class Mensalidade {
 		
 	}
 
-	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, StatusPagamento status, float valor,
+	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, StatusPagamento status, Double valor,
 			Aluno aluno) {
 		super();
 		this.id = id;
@@ -105,11 +105,11 @@ public class Mensalidade {
 		this.status = status.getCodigo();
 	}
 
-	public float getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 

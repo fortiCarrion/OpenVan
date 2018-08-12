@@ -67,11 +67,11 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
 
 		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo",
-				PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00f, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
+				PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
 		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", PeriodoAluno.MATUTINO,
-				"43 96559384", StatusAluno.ATIVO, null, 95.50f, 10, sdf.parse("03/08/2018 13:50"), c2, v2);
+				"43 96559384", StatusAluno.ATIVO, null, 95.50, 10, sdf.parse("03/08/2018 13:50"), c2, v2);
 		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", PeriodoAluno.VESPERTINO,
-				"43 96559384", StatusAluno.ATIVO, null, 95.99f, 5, sdf.parse("04/08/2018 14:30"), c1, v2);
+				"43 96559384", StatusAluno.ATIVO, null, 95.99, 5, sdf.parse("04/08/2018 14:30"), c1, v2);
 
 		Endereco e1 = new Endereco(null, "Rua Leopoldina", 579, "aeroporto", a1);
 		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", a2);

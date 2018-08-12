@@ -53,7 +53,7 @@ public class Aluno implements Serializable {
 	private String recado;
 
 	@Column(name = "alnvalor", nullable = false, precision = 4, scale = 2)
-	private float valor;
+	private Double valor;
 
 	@Column(name = "alnvencimento", nullable = false)
 	private int vencimentoMensalidade;
@@ -87,7 +87,7 @@ public class Aluno implements Serializable {
 	}
 
 	public Aluno(Long id, String nome, String pai, String mae, PeriodoAluno periodo, String celular, StatusAluno status,
-			String recado, float valor, int vencimentoMensalidade, Date registro, Colegio colegio, Veiculo veiculo) {
+			String recado, Double valor, int vencimentoMensalidade, Date registro, Colegio colegio, Veiculo veiculo) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -169,11 +169,11 @@ public class Aluno implements Serializable {
 		this.recado = recado;
 	}
 
-	public float getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
