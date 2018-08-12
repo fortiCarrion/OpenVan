@@ -74,6 +74,10 @@ public class Aluno implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Contato> contatos = new ArrayList<>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "aluno")
+	private List<Mensalidade> mensalidades = new ArrayList<>();
 
 	public Aluno() {
 
@@ -200,6 +204,15 @@ public class Aluno implements Serializable {
 
 	public void setContatos(List<Contato> contatos) {
 		this.contatos = contatos;
+	}
+	
+
+	public List<Mensalidade> getMensalidades() {
+		return mensalidades;
+	}
+
+	public void setMensalidades(List<Mensalidade> mensalidades) {
+		this.mensalidades = mensalidades;
 	}
 
 	@Override
