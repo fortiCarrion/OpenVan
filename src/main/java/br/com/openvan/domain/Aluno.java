@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import br.com.openvan.domain.enums.PeriodoAluno;
 import br.com.openvan.domain.enums.StatusAluno;
 
 @Entity
@@ -40,7 +41,7 @@ public class Aluno implements Serializable {
 
 	// periodo : noturno, matutino, vespertino.
 	@Column(name = "alnperiodo", nullable = false, length = 12)
-	private String periodo;
+	private Integer periodo;
 
 	@Column(name = "alncelular", nullable = true, length = 16)
 	private String celular;
@@ -85,14 +86,14 @@ public class Aluno implements Serializable {
 
 	}
 
-	public Aluno(Long id, String nome, String pai, String mae, String periodo, String celular, StatusAluno status,
+	public Aluno(Long id, String nome, String pai, String mae, PeriodoAluno periodo, String celular, StatusAluno status,
 			String recado, float valor, int vencimentoMensalidade, Date registro, Colegio colegio, Veiculo veiculo) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.pai = pai;
 		this.mae = mae;
-		this.periodo = periodo;
+		this.periodo = periodo.getCodigo();
 		this.celular = celular;
 		this.status = status.getCodigo();
 		this.recado = recado;
@@ -136,12 +137,12 @@ public class Aluno implements Serializable {
 		this.mae = mae;
 	}
 
-	public String getPeriodo() {
-		return periodo;
+	public PeriodoAluno getPeriodo() {
+		return PeriodoAluno.toEnum(periodo);
 	}
 
-	public void setPeriodo(String periodo) {
-		this.periodo = periodo;
+	public void setPeriodo(PeriodoAluno periodo) {
+		this.periodo = periodo.getCodigo();
 	}
 
 	public String getCelular() {
