@@ -20,4 +20,9 @@ public class ColegioService {
 	
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado ID: " + id));
 	}
+	
+	public Colegio insert(Colegio obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }
