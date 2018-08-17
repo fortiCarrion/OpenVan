@@ -15,7 +15,7 @@ public class VeiculoService {
 	@Autowired
 	private VeiculoRepository repo;
 
-	public Veiculo buscar(Long id) {
+	public Veiculo find(Long id) {
 		Optional<Veiculo> obj = repo.findById(id);
 	
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado ID: " + id));

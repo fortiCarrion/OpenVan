@@ -18,9 +18,9 @@ public class AlunoResource {
 	private AlunoService service;
 
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Long id) {
+	public ResponseEntity<Aluno> find(@PathVariable Long id) {
 		
-		Aluno obj = service.buscar(id);
+		Aluno obj = service.find(id);
 		
 		return ResponseEntity.ok().body(obj);
 	}

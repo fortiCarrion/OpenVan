@@ -18,9 +18,9 @@ public class VeiculoResource {
 	private VeiculoService service;
 
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Long id) {
+	public ResponseEntity<Veiculo> find(@PathVariable Long id) {
 		
-		Veiculo obj = service.buscar(id);
+		Veiculo obj = service.find(id);
 		
 		return ResponseEntity.ok().body(obj);
 	}

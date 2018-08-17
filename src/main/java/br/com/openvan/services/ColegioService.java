@@ -15,7 +15,7 @@ public class ColegioService {
 	@Autowired
 	private ColegioRepository repo;
 
-	public Colegio buscar(Long id) {
+	public Colegio find(Long id) {
 		Optional<Colegio> obj = repo.findById(id);
 	
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado ID: " + id));
@@ -23,6 +23,11 @@ public class ColegioService {
 	
 	public Colegio insert(Colegio obj) {
 		obj.setId(null);
+		return repo.save(obj);
+	}
+	
+	public Colegio update(Colegio obj) {
+		find(obj.getId());
 		return repo.save(obj);
 	}
 }
