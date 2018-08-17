@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Endereco implements Serializable{
@@ -18,21 +18,21 @@ public class Endereco implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "endid", nullable = false)
+	@Column(name = "end_id", nullable = false)
 	private Long id;
 	
-	@Column(name = "endendereco", nullable = false, length = 30)
+	@Column(name = "end_endereco", nullable = false, length = 30)
 	private String endereco;
 	
-	@Column(name = "endnumero", nullable = false, length = 4)
+	@Column(name = "end_numero", nullable = false, length = 4)
 	private int numero;
 	
-	@Column(name = "endbairro", nullable = false, length = 20)
+	@Column(name = "end_bairro", nullable = false, length = 20)
 	private String bairro;
 	
-	@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "endaluno")
+	@JoinColumn(name = "end_aluno")
 	private Aluno aluno;
 	
 	public Endereco() {

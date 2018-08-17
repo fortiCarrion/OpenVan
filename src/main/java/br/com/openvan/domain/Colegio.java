@@ -22,30 +22,30 @@ public class Colegio implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "clgid", nullable = false)
+	@Column(name = "clg_id", nullable = false)
 	private Long id;
 
 	// Indentificar se a escola eh de rede publica, privada, ...
-	@Column(name = "clgrede", nullable = false, length = 12)
+	@Column(name = "clg_rede", nullable = false, length = 12)
 	private String rede;
 
-	@Column(name = "clgnome", nullable = false, length = 50)
+	@Column(name = "clg_nome", nullable = false, length = 50)
 	private String nome;
 
-	@Column(name = "clgendereco", nullable = false, length = 50)
+	@Column(name = "clg_endereco", nullable = false, length = 50)
 	private String endereco;
 
-	@Column(name = "clgnumero", nullable = false, length = 5)
+	@Column(name = "clg_numero", nullable = false, length = 5)
 	private int numero;
 
-	@Column(name = "clgtelefone", nullable = true, length = 12)
+	@Column(name = "clg_telefone", nullable = true, length = 12)
 	private String telefone;
 
-	@Column(name = "clgwebsite", nullable = true, length = 50)
+	@Column(name = "clg_website", nullable = true, length = 50)
 	private String website;
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Column(name = "clgdataregistro", nullable = false)
+	@Column(name = "clg_dataregistro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 

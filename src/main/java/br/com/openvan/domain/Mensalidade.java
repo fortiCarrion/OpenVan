@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.openvan.domain.enums.StatusPagamento;
 
@@ -23,31 +23,31 @@ public class Mensalidade {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "menid", nullable = false)
+	@Column(name = "men_id", nullable = false)
 	private Long id;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Column(name = "menemissao", nullable = false)
+	@Column(name = "men_emissao", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date emissao;
 	
-	@Column(name = "menvencimento", nullable = false)
+	@Column(name = "men_vencimento", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date vencimento;
 	
-	@Column(name = "menpagamento")
+	@Column(name = "men_pagamento")
 	@Temporal(TemporalType.DATE)
 	private Date pagamento;
 	
-	@Column(name = "menstatus", nullable = false, length = 12)
+	@Column(name = "men_status", nullable = false, length = 12)
 	private Integer status;
 	
-	@Column(name = "menvalor", nullable = false, precision = 4, scale = 2)
+	@Column(name = "men_valor", nullable = false, precision = 4, scale = 2)
 	private Double valor;
 	
-	@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "menaluno")
+	@JoinColumn(name = "men_aluno")
 	private Aluno aluno;
 	
 	public Mensalidade() {

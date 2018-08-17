@@ -17,7 +17,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.openvan.domain.enums.PeriodoAluno;
 import br.com.openvan.domain.enums.StatusAluno;
@@ -28,59 +27,56 @@ public class Aluno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "alnid", nullable = false)
+	@Column(name = "aln_id", nullable = false)
 	private Long id;
 
-	@Column(name = "alnnome", nullable = false, length = 50)
+	@Column(name = "aln_nome", nullable = false, length = 50)
 	private String nome;
 
-	@Column(name = "alnpai", nullable = false, length = 50)
+	@Column(name = "aln_pai", nullable = false, length = 50)
 	private String pai;
 
-	@Column(name = "alnmae", nullable = false, length = 50)
+	@Column(name = "aln_mae", nullable = false, length = 50)
 	private String mae;
 
 	// periodo : noturno, matutino, vespertino.
-	@Column(name = "alnperiodo", nullable = false, length = 12)
+	@Column(name = "aln_periodo", nullable = false, length = 12)
 	private Integer periodo;
 
-	@Column(name = "alncelular", nullable = true, length = 16)
+	@Column(name = "aln_celular", nullable = true, length = 16)
 	private String celular;
 
-	@Column(name = "alnstatus", nullable = false, length = 12)
+	@Column(name = "aln_status", nullable = false, length = 12)
 	private Integer status;
 
-	@Column(name = "alnrecado", nullable = true, length = 150)
+	@Column(name = "aln_recado", nullable = true, length = 150)
 	private String recado;
 
-	@Column(name = "alnvalor", nullable = false, precision = 4, scale = 2)
+	@Column(name = "aln_valor", nullable = false, precision = 4, scale = 2)
 	private Double valor;
 
-	@Column(name = "alnvencimento", nullable = false)
+	@Column(name = "aln_vencimento", nullable = false)
 	private int vencimentoMensalidade;
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Column(name = "alnregistro", nullable = false)
+	@Column(name = "aln_registro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 	
 	@ManyToOne
-	@JoinColumn(name = "alncolegio")
+	@JoinColumn(name = "aln_colegio")
 	private Colegio colegio;
 	
 	@ManyToOne
-	@JoinColumn(name = "alnveiculo")
+	@JoinColumn(name = "aln_veiculo")
 	private Veiculo veiculo;
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Contato> contatos = new ArrayList<>();
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	private List<Mensalidade> mensalidades = new ArrayList<>();
 

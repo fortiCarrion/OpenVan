@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Contato implements Serializable{
@@ -18,25 +18,25 @@ public class Contato implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "conid", nullable = false)
+	@Column(name = "con_id", nullable = false)
 	private Long id;
 	
 	// Nome referente ao contato, exemplo: pai, mae, irmao, ...
-	@Column(name = "conreferencia", nullable = false, length = 12)
+	@Column(name = "con_referencia", nullable = false, length = 12)
 	private String referencia;
 	
-	@Column(name = "concelular", nullable = true, length = 16)
+	@Column(name = "con_celular", nullable = true, length = 16)
 	private String celular;
 	
-	@Column(name = "concomercial", nullable = true, length = 16)
+	@Column(name = "con_comercial", nullable = true, length = 16)
 	private String comercial;
 
-	@Column(name = "conresidencial", nullable = true, length = 16)
+	@Column(name = "con_residencial", nullable = true, length = 16)
 	private String residencial;
 	
-	@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "conaluno")
+	@JoinColumn(name = "con_aluno")
 	private Aluno aluno;
 	
 	

@@ -22,30 +22,30 @@ public class Veiculo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "velid", nullable = false)
+	@Column(name = "vel_id", nullable = false)
 	private Long id;
 
-	@Column(name = "velcondutor", nullable = false, length = 50)
+	@Column(name = "vel_condutor", nullable = false, length = 50)
 	private String condutor;
 
-	@Column(name = "velnumero", nullable = false, length = 4)
+	@Column(name = "vel_numero", nullable = false, length = 4)
 	private Integer numero;
 
-	@Column(name = "velmodelo", nullable = true, length = 50)
+	@Column(name = "vel_modelo", nullable = true, length = 50)
 	private String modelo;
 
-	@Column(name = "velano", nullable = true, length = 4)
+	@Column(name = "vel_ano", nullable = true, length = 4)
 	private int ano;
 
 	// status do veiculo, "ATIVO", "INATIVO", "MANUTENÇÃO", ...
-	@Column(name = "velstatus", nullable = false, length = 12)
+	@Column(name = "vel_status", nullable = false, length = 12)
 	private String status;
 
-	@Column(name = "velrecado", nullable = true, length = 150)
+	@Column(name = "vel_recado", nullable = true, length = 150)
 	private String recado;
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Column(name = "velregistro", nullable = false)
+	@Column(name = "vel_registro", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 	
