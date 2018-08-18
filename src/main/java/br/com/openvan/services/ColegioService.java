@@ -3,6 +3,7 @@ package br.com.openvan.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Colegio;
@@ -29,5 +30,17 @@ public class ColegioService {
 	public Colegio update(Colegio obj) {
 		find(obj.getId());
 		return repo.save(obj);
+	}
+	
+	public void delete(Long id) {
+		find(id);
+		try {
+
+			repo.deleteById(id);	
+		 
+		} catch(DataIntegrityViolationException e){ 
+			// Nunca vai entrar nesta exceção pois o Colegio não depende de nenhuma outra classe para ser criada
+			throw new DataIntegrityViolationException("Não é possivel excluir o Colegio");
+		}
 	}
 }
