@@ -27,7 +27,7 @@ public class Colegio implements Serializable {
 
 	// Indentificar se a escola eh de rede publica, privada, ...
 	@Column(name = "clg_rede", nullable = false, length = 12)
-	private String rede;
+	private Integer rede;
 
 	@Column(name = "clg_nome", nullable = false, length = 50)
 	private String nome;
@@ -38,10 +38,10 @@ public class Colegio implements Serializable {
 	@Column(name = "clg_numero", nullable = false, length = 5)
 	private int numero;
 
-	@Column(name = "clg_telefone", nullable = true, length = 12)
+	@Column(name = "clg_telefone", nullable = true, length = 15)
 	private String telefone;
 
-	@Column(name = "clg_website", nullable = true, length = 50)
+	@Column(name = "clg_website", nullable = true, length = 100)
 	private String website;
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
@@ -56,7 +56,7 @@ public class Colegio implements Serializable {
 
 	}
 
-	public Colegio(Long id, String rede, String nome, String endereco, int numero, String telefone, String website,
+	public Colegio(Long id, Integer rede, String nome, String endereco, int numero, String telefone, String website,
 			Date registro) {
 		super();
 		this.id = id;
@@ -77,11 +77,11 @@ public class Colegio implements Serializable {
 		this.id = id;
 	}
 
-	public String getRede() {
+	public Integer getRede() {
 		return rede;
 	}
 
-	public void setRede(String rede) {
+	public void setRede(Integer rede) {
 		this.rede = rede;
 	}
 

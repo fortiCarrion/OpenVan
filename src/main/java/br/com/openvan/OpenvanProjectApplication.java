@@ -59,10 +59,19 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-		Colegio c1 = new Colegio(null, "particular", "maxi", "av. duque caxias", 1589, "33 96559356",
-				"https:\\www.maxi.com.br", sdf.parse("02/07/2018 23:50"));
-		Colegio c2 = new Colegio(null, "publica", "benetida", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:16"));
-
+		Colegio c1 = new Colegio(null, 1, "Maxi", "av. duque caxias", 1589, "(43) 3372-5555", "https:\\www.maxi.com.br", sdf.parse("02/07/2018 23:50"));
+		Colegio c2 = new Colegio(null, 2, "Benedita Rosa Rezende", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:16"));
+		Colegio c3 = new Colegio(null, 3, "Uninorte Junior", "Av. Santos Dumont", 1565, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:16"));
+		Colegio c4 = new Colegio(null, 1, "Benedita Rosa Rezende", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:20"));
+		Colegio c5 = new Colegio(null, 2, "Ética", "Av. Santos Dumont", 1200, "(43) 3326-8572", "nenhum", sdf.parse("16/05/2018 13:16"));
+		Colegio c6 = new Colegio(null, 1, "Nossa Senhora de Lourdes", "Av. São João", 965, "(43) 3337-6226", "http://www.ldanslourdes.seed.pr.gov.br/modules/liaise/", sdf.parse("15/07/2018 12:16"));
+		Colegio c7 = new Colegio(null, 1, "Mãe de Deus", "Av. Rio de Janeiro", 670, "(43) 3878-6800", "http://www.maededeus.edu.br/", sdf.parse("19/06/2018 10:21"));
+		Colegio c8 = new Colegio(null, 3, "Machado de Assis", "R. Jaú", 148, "(43) 3325-8549", "http://www.ldamachadodeassis.seed.pr.gov.br/modules/conteudo/conteudo.php?conteudo=1", sdf.parse("20/06/2018 12:11"));
+		Colegio c9 = new Colegio(null, 2, "Educar", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("25/06/2018 12:36"));
+		Colegio c10 = new Colegio(null, 1, "Marista", "Rua Maringá", 78, "(43) 3374-3600", "https://londrina.colegiosmaristas.com.br/", sdf.parse("01/07/2018 08:16"));
+		Colegio c11 = new Colegio(null, 3, "Margarida de Barros Lisboa", "R. Finlândia", 150, "(43) 3341-7841", "nenhum", sdf.parse("02/07/2018 14:42"));
+		Colegio c12 = new Colegio(null, 3, "Newton Guimarães", "R. Guarujá", 228, "(43) 3324-2263", "nenhum", sdf.parse("02/07/2018 18:30"));
+		
 		Veiculo v1 = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, "ATIVO", null, sdf.parse("22/07/2018 11:30"));
 		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
 
@@ -101,7 +110,7 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 
 		a1.getMensalidades().addAll(Arrays.asList(men1));
 
-		colegioRepository.saveAll(Arrays.asList(c1, c2));
+		colegioRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12));
 		veiculoRepository.saveAll(Arrays.asList(v1, v2));
 		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
