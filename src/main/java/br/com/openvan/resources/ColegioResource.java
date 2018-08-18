@@ -2,6 +2,7 @@ package br.com.openvan.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.dto.ColegioDTO;
 import br.com.openvan.services.ColegioService;
 
 @RestController
@@ -56,11 +58,11 @@ public class ColegioResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Colegio>> findAll() {
+	public ResponseEntity<List<ColegioDTO>> findAll() {
 		
 		List<Colegio> list = service.findAll();
-		
-		return ResponseEntity.ok().body(list);
+		List<ColegioDTO> listDTO = list.stream().map(obj -> new ColegioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 	
 
