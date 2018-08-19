@@ -6,10 +6,10 @@ public enum RedeColegio {
 	ESTADUAL(2, "Estadual"), 
 	MUNICIPAL(3, "Municipal");
 
-	private int codigo;
+	private Integer codigo;
 	private String status;
 
-	private RedeColegio(int codigo, String status) {
+	private RedeColegio(Integer codigo, String status) {
 		this.codigo = codigo;
 		this.status = status;
 	}

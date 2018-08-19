@@ -14,7 +14,8 @@ public class ColegioDTO implements Serializable{
 	
 	private Long id;
 	
-	@NotEmpty(message = "Preenchimento obrigatório")
+	//@NotEmpty(message = "Preenchimento obrigatório")
+	//@Length(min = 1, max = 15, message = "O compra tem que ser entre 1 a 15 caracteres")
 	private Integer rede;
 	
 	@NotEmpty(message = "Preenchimento obrigatório")
@@ -25,9 +26,9 @@ public class ColegioDTO implements Serializable{
 	@Length(min = 4, max = 50, message = "O tamanho tem que ser entre 4 a 50 caracteres")
 	private String endereco;
 	
-	@NotEmpty(message = "Preenchimento obrigatório")
-	@Length(min = 1, max = 4, message = "O tamanho tem que ser entre 1 a 4 caracteres")
-	private int numero;
+	//@NotEmpty(message = "Preenchimento obrigatório")
+	//@Length(min = 1, max = 4, message = "O tamanho tem que ser entre 1 a 4 caracteres")
+	private Integer numero;
 	
 	@Length(max = 15, message = "Limete de tamanho 15 excedido")
 	private String telefone;
