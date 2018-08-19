@@ -62,7 +62,7 @@ public class Mensalidade {
 		this.emissao = emissao;
 		this.vencimento = vencimento;
 		this.pagamento = pagamento;
-		this.status = status.getCodigo();
+		this.status = (status==null) ? null : status.getCodigo();
 		this.valor = valor;
 		this.aluno = aluno;
 	}

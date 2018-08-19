@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.domain.Veiculo;
 import br.com.openvan.dto.ColegioDTO;
 import br.com.openvan.repositories.ColegioRepository;
 import br.com.openvan.services.exceptions.ObjectNotFoundException;
@@ -33,8 +34,9 @@ public class ColegioService {
 	}
 	
 	public Colegio update(Colegio obj) {
-		find(obj.getId());
-		return repo.save(obj);
+		Colegio newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
 	
 	public void delete(Long id) {
@@ -63,4 +65,15 @@ public class ColegioService {
 
 		return new Colegio(objDTO.getId(), objDTO.getRede(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), objDTO.getRegistro());
 	}
+	
+	private void updateData(Colegio newObj, Colegio obj) {
+		newObj.setNome(obj.getNome());
+		newObj.setRede(obj.getRede());
+		newObj.setEndereco(obj.getEndereco());
+		newObj.setNumero(obj.getNumero());
+		newObj.setTelefone(obj.getTelefone());
+		newObj.setWebsite(obj.getWebsite());
+		newObj.setRegistro(obj.getRegistro());
+	}
+
 }

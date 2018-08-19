@@ -36,7 +36,7 @@ public class Colegio implements Serializable {
 	private String endereco;
 
 	@Column(name = "clg_numero", nullable = false, length = 5)
-	private int numero;
+	private Integer numero;
 
 	@Column(name = "clg_telefone", nullable = true, length = 15)
 	private String telefone;
@@ -56,7 +56,7 @@ public class Colegio implements Serializable {
 
 	}
 
-	public Colegio(Long id, Integer rede, String nome, String endereco, int numero, String telefone, String website,
+	public Colegio(Long id, Integer rede, String nome, String endereco, Integer numero, String telefone, String website,
 			Date registro) {
 		super();
 		this.id = id;
@@ -105,7 +105,7 @@ public class Colegio implements Serializable {
 		return numero;
 	}
 
-	public void setNumero(short numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
