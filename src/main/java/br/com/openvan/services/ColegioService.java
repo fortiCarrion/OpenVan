@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.dto.ColegioDTO;
 import br.com.openvan.repositories.ColegioRepository;
 import br.com.openvan.services.exceptions.ObjectNotFoundException;
 
@@ -56,5 +57,10 @@ public class ColegioService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
 		return repo.findAll(pageRequest);
+	}
+	
+	public Colegio fromDTO(ColegioDTO objDTO) {
+
+		return new Colegio(objDTO.getId(), objDTO.getRede(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), objDTO.getRegistro());
 	}
 }
