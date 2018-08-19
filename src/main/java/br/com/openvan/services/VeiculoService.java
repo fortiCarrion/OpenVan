@@ -1,11 +1,17 @@
 package br.com.openvan.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Veiculo;
+import br.com.openvan.dto.VeiculoDTO;
 import br.com.openvan.repositories.VeiculoRepository;
 import br.com.openvan.services.exceptions.ObjectNotFoundException;
 
@@ -20,4 +26,44 @@ public class VeiculoService {
 	
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado ID: " + id));
 	}
+	
+
+	public Veiculo insert(Veiculo obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+	
+	public Veiculo update(Veiculo obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
+	
+	public void delete(Long id) {
+		find(id);
+		try {
+
+			repo.deleteById(id);	
+		 
+		} catch(DataIntegrityViolationException e){ 
+			// Nunca vai entrar nesta exceção pois o Veiculo não depende de nenhuma outra classe para ser criada
+			throw new DataIntegrityViolationException("Não é possivel excluir o Veiculo");
+		}
+	}
+	
+	public List<Veiculo> findAll(){
+		return repo.findAll();
+	}
+	
+	public Page<Veiculo> findPage(Integer page, Integer linesPerPage, String direction, String orderBy){
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		
+		return repo.findAll(pageRequest);
+	}
+	
+	public Veiculo fromDTO(VeiculoDTO objDTO) {
+
+		//throw new UnsupportedOperationException();
+		return new Veiculo(objDTO.getId(), objDTO.getCondutor(), objDTO.getNumero(), objDTO.getModelo(), objDTO.getAno(), objDTO.getStatus(), objDTO.getRecado(), objDTO.getRegistro());
+	}
+
 }

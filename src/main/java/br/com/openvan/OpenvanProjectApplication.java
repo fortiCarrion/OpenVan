@@ -74,7 +74,15 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		
 		Veiculo v1 = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, "ATIVO", null, sdf.parse("22/07/2018 11:30"));
 		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-
+		Veiculo v3 = new Veiculo(null, "Momonga", 3, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v4 = new Veiculo(null, "Albedo", 4, "Mercedez Skyline", 2015, "INATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v5 = new Veiculo(null, "Cocytus ", 5, "Mercedez Skyline", 2017, "MANUTENÇÃO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v6 = new Veiculo(null, "Shalltear Bloodfallen", 6, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v7 = new Veiculo(null, "Demiurge", 7, "Mercedez Skyline", 2017, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v8 = new Veiculo(null, "Aura Bella Fiora", 8, "Mercedez Skyline", 2016, "INATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v9 = new Veiculo(null, "Gazef Stronoff", 9, "Mercedez Skyline", 2013, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v10 = new Veiculo(null, "Nigun Grid Luin", 10, "Mercedez Skyline", 2018, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		
 		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo",
 				PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
 		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", PeriodoAluno.MATUTINO,
@@ -111,7 +119,7 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		a1.getMensalidades().addAll(Arrays.asList(men1));
 
 		colegioRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12));
-		veiculoRepository.saveAll(Arrays.asList(v1, v2));
+		veiculoRepository.saveAll(Arrays.asList(v1, v2, v3,v4,v5,v6,v7,v8,v9,v10));
 		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
 		contatoRepository.saveAll(Arrays.asList(con1, con2, con3, con4));
