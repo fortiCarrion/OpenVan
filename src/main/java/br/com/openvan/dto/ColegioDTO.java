@@ -33,7 +33,6 @@ public class ColegioDTO implements Serializable{
 	@Length(max = 15, message = "Limete de tamanho 15 excedido")
 	private String telefone;
 	private String website;
-	private Date registro;
 	
 	public ColegioDTO() {
 		
@@ -47,7 +46,6 @@ public class ColegioDTO implements Serializable{
 		numero = obj.getNumero();
 		telefone = obj.getTelefone();
 		website = obj.getWebsite();
-		registro = obj.getRegistro();
 	}
 
 	public Long getId() {
@@ -106,11 +104,11 @@ public class ColegioDTO implements Serializable{
 		this.website = website;
 	}
 
-	public Date getRegistro() {
-		return registro;
-	}
-
-	public void setRegistro(Date registro) {
-		this.registro = registro;
-	}
+//	public Date getRegistro() {
+//		return registro;
+//	}
+//
+//	public void setRegistro(Date registro) {
+//		this.registro = registro;
+//	}
 }

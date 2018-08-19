@@ -65,7 +65,7 @@ public class VeiculoService {
 	public Veiculo fromDTO(VeiculoDTO objDTO) {
 
 		//throw new UnsupportedOperationException();
-		return new Veiculo(objDTO.getId(), objDTO.getCondutor(), objDTO.getNumero(), objDTO.getModelo(), objDTO.getAno(), objDTO.getStatus(), objDTO.getRecado(), objDTO.getRegistro());
+		return new Veiculo(objDTO.getId(), objDTO.getCondutor(), objDTO.getNumero(), objDTO.getModelo(), objDTO.getAno(), objDTO.getStatus(), objDTO.getRecado(), null);
 	}
 	
 	private void updateData(Veiculo newObj, Veiculo obj) {
@@ -75,7 +75,6 @@ public class VeiculoService {
 		newObj.setModelo(obj.getModelo());
 		newObj.setAno(obj.getAno());
 		newObj.setRecado(obj.getRecado());
-		newObj.setRegistro(obj.getRegistro());
 	}
 
 }

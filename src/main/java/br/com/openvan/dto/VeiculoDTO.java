@@ -26,8 +26,6 @@ public class VeiculoDTO implements Serializable{
 	@Length(min = 0, max = 150, message = "Campo não pode ter mais de 150 caracteres")
 	private String recado;
 
-	private Date registro;
-	
 	public VeiculoDTO() {
 		
 	}
@@ -40,7 +38,6 @@ public class VeiculoDTO implements Serializable{
 		ano = obj.getAno();
 		status = obj.getStatus();
 		recado = obj.getRecado();
-		registro = obj.getRegistro();
 	}
 
 	public Long getId() {
@@ -98,17 +95,4 @@ public class VeiculoDTO implements Serializable{
 	public void setRecado(String recado) {
 		this.recado = recado;
 	}
-
-	public Date getRegistro() {
-		return registro;
-	}
-
-	public void setRegistro(Date registro) {
-		this.registro = registro;
-	}
-	
-	
-	
-	
-
 }
