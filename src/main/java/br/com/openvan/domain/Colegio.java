@@ -29,7 +29,7 @@ public class Colegio implements Serializable {
 	@Column(name = "clg_rede", nullable = false, length = 12)
 	private Integer rede;
 
-	@Column(name = "clg_nome", nullable = false, length = 50)
+	@Column(unique = true, name = "clg_nome", nullable = false, length = 50)
 	private String nome;
 
 	@Column(name = "clg_endereco", nullable = false, length = 50)

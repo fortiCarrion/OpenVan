@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.openvan.domain.Aluno;
 import br.com.openvan.domain.enums.PeriodoAluno;
 import br.com.openvan.domain.enums.StatusAluno;
@@ -36,6 +38,9 @@ public class AlunoDTO implements Serializable {
 	//@NotEmpty(message = "Preenchimento obrigatório")
 	private int vencimentoMensalidade;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date registro;
+
 	public AlunoDTO() {
 		
 	}
@@ -51,7 +56,7 @@ public class AlunoDTO implements Serializable {
 		status = obj.getStatus();
 		valor = obj.getValor();
 		vencimentoMensalidade = obj.getVencimentoMensalidade();
-		
+		registro = obj.getRegistro();
 	}
 
 	public Long getId() {
@@ -134,10 +139,10 @@ public class AlunoDTO implements Serializable {
 		this.vencimentoMensalidade = vencimentoMensalidade;
 	}
 
-//	public Date getRegistro() {
-//		return registro;
-//	}
-//
+	public Date getRegistro() {
+		return registro;
+	}
+
 //	public void setRegistro(Date registro) {
 //		this.registro = registro;
 //	}

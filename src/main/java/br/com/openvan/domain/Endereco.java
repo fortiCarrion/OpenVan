@@ -30,6 +30,9 @@ public class Endereco implements Serializable{
 	@Column(name = "end_bairro", nullable = false, length = 20)
 	private String bairro;
 	
+	@Column(name ="end_complemento", nullable = true, length = 30)
+	private String complemento;
+	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "end_aluno")
@@ -39,12 +42,13 @@ public class Endereco implements Serializable{
 		
 	}
 
-	public Endereco(Long id, String endereco, int numero, String bairro, Aluno aluno) {
+	public Endereco(Long id, String endereco, int numero, String bairro, String complemento, Aluno aluno) {
 		super();
 		this.id = id;
 		this.endereco = endereco;
 		this.numero = numero;
 		this.bairro = bairro;
+		this.complemento = complemento;
 		this.aluno = aluno;
 	}
 
@@ -78,6 +82,14 @@ public class Endereco implements Serializable{
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+	
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public Aluno getAluno() {

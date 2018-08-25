@@ -62,7 +62,7 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Colegio c1 = new Colegio(null, 1, "Maxi", "av. duque caxias", 1589, "(43) 3372-5555", "https:\\www.maxi.com.br", sdf.parse("02/07/2018 23:50"));
 		Colegio c2 = new Colegio(null, 2, "Benedita Rosa Rezende", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:16"));
 		Colegio c3 = new Colegio(null, 3, "Uninorte Junior", "Av. Santos Dumont", 1565, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:16"));
-		Colegio c4 = new Colegio(null, 1, "Benedita Rosa Rezende", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:20"));
+		Colegio c4 = new Colegio(null, 1, "Outro", "av. maritacas", 125, "33 96559356", "nenhum", sdf.parse("15/07/2018 12:20"));
 		Colegio c5 = new Colegio(null, 2, "Ética", "Av. Santos Dumont", 1200, "(43) 3326-8572", "nenhum", sdf.parse("16/05/2018 13:16"));
 		Colegio c6 = new Colegio(null, 1, "Nossa Senhora de Lourdes", "Av. São João", 965, "(43) 3337-6226", "http://www.ldanslourdes.seed.pr.gov.br/modules/liaise/", sdf.parse("15/07/2018 12:16"));
 		Colegio c7 = new Colegio(null, 1, "Mãe de Deus", "Av. Rio de Janeiro", 670, "(43) 3878-6800", "http://www.maededeus.edu.br/", sdf.parse("19/06/2018 10:21"));
@@ -83,17 +83,14 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Veiculo v9 = new Veiculo(null, "Gazef Stronoff", 9, "Mercedez Skyline", 2013, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
 		Veiculo v10 = new Veiculo(null, "Nigun Grid Luin", 10, "Mercedez Skyline", 2018, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
 		
-		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo",
-				PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00, 5, sdf.parse("03/08/2018 13:30"), c1, v2);
-		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", PeriodoAluno.MATUTINO,
-				"43 96559384", StatusAluno.ATIVO, null, 95.50, 10, sdf.parse("03/08/2018 13:50"), c2, v2);
-		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", PeriodoAluno.VESPERTINO,
-				"43 96559384", StatusAluno.ATIVO, null, 95.99, 5, sdf.parse("04/08/2018 14:30"), c1, v2);
+		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo", PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00, 5, sdf.parse("03/08/2018 13:30"), c3, v2);
+		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", PeriodoAluno.MATUTINO, "43 96559384", StatusAluno.ATIVO, null, 95.50, 10, sdf.parse("03/08/2018 13:50"), c1, v1);
+		Aluno a3 = new Aluno(null, "Arthur Cronita", "Ricardo Cronita Meneguel", "Carla de Souza Cronita", PeriodoAluno.VESPERTINO, "43 96559384", StatusAluno.ATIVO, null, 95.99, 5, sdf.parse("04/08/2018 14:30"), c6, v8);
 
-		Endereco e1 = new Endereco(null, "Rua Leopoldina", 579, "aeroporto", a1);
-		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", a2);
-		Endereco e3 = new Endereco(null, "Av. São João", 1458, "cervejada", a3);
-		Endereco e4 = new Endereco(null, "Av. Tiradentes", 3451, "madeiro", a1);
+		Endereco e1 = new Endereco(null, "Rua Leopoldina", 579, "aeroporto", null, a1);
+		Endereco e2 = new Endereco(null, "Rua Fransico Bode", 345, "salvador", null, a2);
+		Endereco e3 = new Endereco(null, "Av. São João", 1458, "cervejada", null, a3);
+		Endereco e4 = new Endereco(null, "Av. Tiradentes", 3451, "madeiro", null, a1);
 
 		Contato con1 = new Contato(null, "pai", "43 9655-9548", "3339-2978", "3334-8958", a1);
 		Contato con2 = new Contato(null, "mãe", "43 9655-9548", "3339-2978", "3334-8958", a1);
