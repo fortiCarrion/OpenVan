@@ -7,37 +7,44 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.openvan.domain.Colegio;
 
-public class ColegioDTO implements Serializable{
+public class ColegioDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
-	
-	//@NotEmpty(message = "Preenchimento obrigatório")
-	//@Length(min = 1, max = 15, message = "O compra tem que ser entre 1 a 15 caracteres")
+
+	// @NotEmpty(message = "Preenchimento obrigatório")
+	// @Length(min = 1, max = 15, message = "O compra tem que ser entre 1 a 15
+	// caracteres")
 	private Integer rede;
-	
+
 	@NotEmpty(message = "Preenchimento obrigatório")
 	@Length(min = 4, max = 50, message = "O tamanho tem que ser entre 4 a 50 caracteres")
 	private String nome;
-	
+
 	@NotEmpty(message = "Preenchimento obrigatório")
 	@Length(min = 4, max = 50, message = "O tamanho tem que ser entre 4 a 50 caracteres")
 	private String endereco;
-	
-	//@NotEmpty(message = "Preenchimento obrigatório")
-	//@Length(min = 1, max = 4, message = "O tamanho tem que ser entre 1 a 4 caracteres")
+
+	// @NotEmpty(message = "Preenchimento obrigatório")
+	// @Length(min = 1, max = 4, message = "O tamanho tem que ser entre 1 a 4
+	// caracteres")
 	private Integer numero;
-	
+
 	@Length(max = 15, message = "Limete de tamanho 15 excedido")
 	private String telefone;
 	private String website;
-	
+
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date registro;
+
 	public ColegioDTO() {
-		
+
 	}
-	
+
 	public ColegioDTO(Colegio obj) {
 		id = obj.getId();
 		rede = obj.getRede();
@@ -46,6 +53,7 @@ public class ColegioDTO implements Serializable{
 		numero = obj.getNumero();
 		telefone = obj.getTelefone();
 		website = obj.getWebsite();
+		registro = obj.getRegistro();
 	}
 
 	public Long getId() {
@@ -104,11 +112,8 @@ public class ColegioDTO implements Serializable{
 		this.website = website;
 	}
 
-//	public Date getRegistro() {
-//		return registro;
-//	}
-//
-//	public void setRegistro(Date registro) {
-//		this.registro = registro;
-//	}
+	public Date getRegistro() {
+		return registro;
+	}
+
 }

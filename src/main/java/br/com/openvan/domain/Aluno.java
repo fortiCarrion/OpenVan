@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Cascade;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -214,6 +217,22 @@ public class Aluno implements Serializable {
 
 	public void setMensalidades(List<Mensalidade> mensalidades) {
 		this.mensalidades = mensalidades;
+	}
+	
+	public void setColegio(Colegio colegio) {
+		this.colegio = colegio;
+	}
+	
+	public Colegio getColegio() {
+		return colegio;
+	}
+	
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+	
+	public Veiculo getVeiculo() {
+		return veiculo;
 	}
 
 	@Override

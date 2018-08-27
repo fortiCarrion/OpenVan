@@ -19,6 +19,7 @@ import br.com.openvan.domain.Veiculo;
 import br.com.openvan.domain.enums.PeriodoAluno;
 import br.com.openvan.domain.enums.StatusAluno;
 import br.com.openvan.domain.enums.StatusPagamento;
+import br.com.openvan.domain.enums.StatusVeiculo;
 import br.com.openvan.repositories.AlunoRepository;
 import br.com.openvan.repositories.ColegioRepository;
 import br.com.openvan.repositories.ContatoRepository;
@@ -72,16 +73,16 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		Colegio c11 = new Colegio(null, 3, "Margarida de Barros Lisboa", "R. Finlândia", 150, "(43) 3341-7841", "nenhum", sdf.parse("02/07/2018 14:42"));
 		Colegio c12 = new Colegio(null, 3, "Newton Guimarães", "R. Guarujá", 228, "(43) 3324-2263", "nenhum", sdf.parse("02/07/2018 18:30"));
 		
-		Veiculo v1 = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, "ATIVO", null, sdf.parse("22/07/2018 11:30"));
-		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v3 = new Veiculo(null, "Momonga", 3, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v4 = new Veiculo(null, "Albedo", 4, "Mercedez Skyline", 2015, "INATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v5 = new Veiculo(null, "Cocytus ", 5, "Mercedez Skyline", 2017, "MANUTENÇÃO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v6 = new Veiculo(null, "Shalltear Bloodfallen", 6, "Mercedez Skyline", 2015, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v7 = new Veiculo(null, "Demiurge", 7, "Mercedez Skyline", 2017, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v8 = new Veiculo(null, "Aura Bella Fiora", 8, "Mercedez Skyline", 2016, "INATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v9 = new Veiculo(null, "Gazef Stronoff", 9, "Mercedez Skyline", 2013, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
-		Veiculo v10 = new Veiculo(null, "Nigun Grid Luin", 10, "Mercedez Skyline", 2018, "ATIVO", null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v1 = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, StatusVeiculo.ATIVO, null, sdf.parse("22/07/2018 11:30"));
+		Veiculo v2 = new Veiculo(null, "Pedro Mauro", 2, "Mercedez Skyline", 2015, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v3 = new Veiculo(null, "Momonga", 3, "Mercedez Skyline", 2015, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v4 = new Veiculo(null, "Albedo", 4, "Mercedez Skyline", 2015, StatusVeiculo.INATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v5 = new Veiculo(null, "Cocytus ", 5, "Mercedez Skyline", 2017, StatusVeiculo.MANUTENÇÃO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v6 = new Veiculo(null, "Shalltear Bloodfallen", 6, "Mercedez Skyline", 2015, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v7 = new Veiculo(null, "Demiurge", 7, "Mercedez Skyline", 2017, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v8 = new Veiculo(null, "Aura Bella Fiora", 8, "Mercedez Skyline", 2016, StatusVeiculo.INATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v9 = new Veiculo(null, "Gazef Stronoff", 9, "Mercedez Skyline", 2013, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
+		Veiculo v10 = new Veiculo(null, "Nigun Grid Luin", 10, "Mercedez Skyline", 2018, StatusVeiculo.ATIVO, null, sdf.parse("02/08/2018 09:21"));
 		
 		Aluno a1 = new Aluno(null, "Douglas Andrade Junior", "Victor Andrade Rico", "Alessandra Andrade Mattielo", PeriodoAluno.NOTURNO, "43 96559384", StatusAluno.ATIVO, "Esta doente só volta dia 15/08", 100.00, 5, sdf.parse("03/08/2018 13:30"), c3, v2);
 		Aluno a2 = new Aluno(null, "Marcos Antonio", "Emanuel Antonio de Lima", "Jessica Meneguel Lima", PeriodoAluno.MATUTINO, "43 96559384", StatusAluno.ATIVO, null, 95.50, 10, sdf.parse("03/08/2018 13:50"), c1, v1);

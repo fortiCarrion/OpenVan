@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.openvan.domain.enums.StatusVeiculo;
+
 @Entity
 public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -28,7 +30,7 @@ public class Veiculo implements Serializable {
 	@Column(name = "vel_condutor", nullable = false, length = 50)
 	private String condutor;
 
-	@Column(name = "vel_numero", nullable = false, length = 4)
+	@Column(unique = true, name = "vel_numero", nullable = false, length = 4)
 	private Integer numero;
 
 	@Column(name = "vel_modelo", nullable = true, length = 50)
@@ -39,7 +41,7 @@ public class Veiculo implements Serializable {
 
 	// status do veiculo, "ATIVO", "INATIVO", "MANUTENÇÃO", ...
 	@Column(name = "vel_status", nullable = false, length = 12)
-	private String status;
+	private Integer status;
 
 	@Column(name = "vel_recado", nullable = true, length = 150)
 	private String recado;
@@ -56,7 +58,7 @@ public class Veiculo implements Serializable {
 
 	}
 
-	public Veiculo(Long id, String condutor, Integer numero, String modelo, int ano, String status, String recado,
+	public Veiculo(Long id, String condutor, Integer numero, String modelo, int ano, StatusVeiculo status, String recado,
 			Date registro) {
 		super();
 		this.id = id;
@@ -64,7 +66,7 @@ public class Veiculo implements Serializable {
 		this.numero = numero;
 		this.modelo = modelo;
 		this.ano = ano;
-		this.status = status;
+		this.status = status.getCodigo();
 		this.recado = recado;
 		this.registro = registro;
 	}
@@ -109,12 +111,12 @@ public class Veiculo implements Serializable {
 		this.ano = ano;
 	}
 
-	public String getStatus() {
-		return status;
+	public StatusVeiculo getStatus() {
+		return StatusVeiculo.toEnum(status);
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(StatusVeiculo status) {
+		this.status = status.getCodigo();
 	}
 
 	public String getRecado() {

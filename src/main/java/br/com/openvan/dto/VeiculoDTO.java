@@ -7,7 +7,10 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.openvan.domain.Veiculo;
+import br.com.openvan.domain.enums.StatusVeiculo;
 
 public class VeiculoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -21,10 +24,13 @@ public class VeiculoDTO implements Serializable{
 	private Integer numero;
 	private String modelo;
 	private int ano;	
-	private String status;
+	private StatusVeiculo status;
 	
 	@Length(min = 0, max = 150, message = "Campo não pode ter mais de 150 caracteres")
 	private String recado;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date registro;
 
 	public VeiculoDTO() {
 		
@@ -38,6 +44,7 @@ public class VeiculoDTO implements Serializable{
 		ano = obj.getAno();
 		status = obj.getStatus();
 		recado = obj.getRecado();
+		registro = obj.getRegistro();
 	}
 
 	public Long getId() {
@@ -80,11 +87,11 @@ public class VeiculoDTO implements Serializable{
 		this.ano = ano;
 	}
 
-	public String getStatus() {
+	public StatusVeiculo getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusVeiculo status) {
 		this.status = status;
 	}
 
@@ -94,5 +101,9 @@ public class VeiculoDTO implements Serializable{
 
 	public void setRecado(String recado) {
 		this.recado = recado;
+	}
+	
+	public Date getRegistro() {
+		return registro;
 	}
 }

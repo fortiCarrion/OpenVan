@@ -1,9 +1,9 @@
 package br.com.openvan.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry.ObjectSqlTypeDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -31,6 +31,7 @@ public class VeiculoService {
 
 	public Veiculo insert(Veiculo obj) {
 		obj.setId(null);
+		obj.setRegistro(new Date());
 		return repo.save(obj);
 	}
 	
@@ -65,7 +66,7 @@ public class VeiculoService {
 	public Veiculo fromDTO(VeiculoDTO objDTO) {
 
 		//throw new UnsupportedOperationException();
-		return new Veiculo(objDTO.getId(), objDTO.getCondutor(), objDTO.getNumero(), objDTO.getModelo(), objDTO.getAno(), objDTO.getStatus(), objDTO.getRecado(), null);
+		return new Veiculo(objDTO.getId(), objDTO.getCondutor(), objDTO.getNumero(), objDTO.getModelo(), objDTO.getAno(), objDTO.getStatus(), objDTO.getRecado(), objDTO.getRegistro());
 	}
 	
 	private void updateData(Veiculo newObj, Veiculo obj) {

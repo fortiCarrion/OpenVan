@@ -1,5 +1,6 @@
 package br.com.openvan.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,7 +12,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Colegio;
-import br.com.openvan.domain.Veiculo;
 import br.com.openvan.dto.ColegioDTO;
 import br.com.openvan.repositories.ColegioRepository;
 import br.com.openvan.services.exceptions.ObjectNotFoundException;
@@ -30,6 +30,7 @@ public class ColegioService {
 	
 	public Colegio insert(Colegio obj) {
 		obj.setId(null);
+		obj.setRegistro(new Date());
 		return repo.save(obj);
 	}
 	
@@ -63,7 +64,7 @@ public class ColegioService {
 	
 	public Colegio fromDTO(ColegioDTO objDTO) {
 
-		return new Colegio(objDTO.getId(), objDTO.getRede(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), null);
+		return new Colegio(objDTO.getId(), objDTO.getRede(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), objDTO.getRegistro());
 	}
 	
 	private void updateData(Colegio newObj, Colegio obj) {
