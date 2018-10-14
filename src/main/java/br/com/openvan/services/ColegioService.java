@@ -64,7 +64,7 @@ public class ColegioService {
 	
 	public Colegio fromDTO(ColegioDTO objDTO) {
 
-		return new Colegio(objDTO.getId(), objDTO.getRede(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), objDTO.getRegistro());
+		return new Colegio(objDTO.getId(), objDTO.getRede().getCodigo(), objDTO.getNome(), objDTO.getEndereco(), objDTO.getNumero(), objDTO.getTelefone(), objDTO.getWebsite(), objDTO.getRegistro());
 	}
 	
 	private void updateData(Colegio newObj, Colegio obj) {

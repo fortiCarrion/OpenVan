@@ -47,7 +47,7 @@ public class Mensalidade {
 	
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "men_aluno")
+	@JoinColumn(name = "men_aluno", nullable = false)
 	private Aluno aluno;
 	
 	public Mensalidade() {

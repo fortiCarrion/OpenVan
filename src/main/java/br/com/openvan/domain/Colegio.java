@@ -16,6 +16,9 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.openvan.domain.enums.RedeColegio;
+import br.com.openvan.domain.enums.StatusVeiculo;
+
 @Entity
 public class Colegio implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -77,14 +80,14 @@ public class Colegio implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getRede() {
-		return rede;
+	public RedeColegio getRede() {
+		return RedeColegio.toEnum(rede);
 	}
 
-	public void setRede(Integer rede) {
-		this.rede = rede;
+	public void setRede(RedeColegio rede) {
+		this.rede = rede.getCodigo();
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}

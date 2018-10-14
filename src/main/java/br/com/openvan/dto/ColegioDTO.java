@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.openvan.domain.Colegio;
+import br.com.openvan.domain.enums.PeriodoAluno;
+import br.com.openvan.domain.enums.RedeColegio;
 
 public class ColegioDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,7 +21,7 @@ public class ColegioDTO implements Serializable {
 	// @NotEmpty(message = "Preenchimento obrigatório")
 	// @Length(min = 1, max = 15, message = "O compra tem que ser entre 1 a 15
 	// caracteres")
-	private Integer rede;
+	private RedeColegio rede;
 
 	@NotEmpty(message = "Preenchimento obrigatório")
 	@Length(min = 4, max = 50, message = "O tamanho tem que ser entre 4 a 50 caracteres")
@@ -64,13 +66,14 @@ public class ColegioDTO implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getRede() {
+	public RedeColegio getRede() {
 		return rede;
 	}
 
-	public void setRede(Integer rede) {
+	public void setRede(RedeColegio rede) {
 		this.rede = rede;
 	}
+
 
 	public String getNome() {
 		return nome;
