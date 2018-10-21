@@ -36,7 +36,7 @@ public class Contato implements Serializable{
 	
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "con_aluno")
+	@JoinColumn(name = "con_aluno", nullable = false)
 	private Aluno aluno;
 	
 	

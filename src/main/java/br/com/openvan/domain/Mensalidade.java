@@ -35,9 +35,15 @@ public class Mensalidade {
 	@Temporal(TemporalType.DATE)
 	private Date vencimento;
 	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(name = "men_pagamento")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date pagamento;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Column(name = "men_cancelamento")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date cancelamento;
 	
 	@Column(name = "men_status", nullable = false, length = 12)
 	private Integer status;
@@ -55,13 +61,14 @@ public class Mensalidade {
 		
 	}
 
-	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, StatusPagamento status, Double valor,
+	public Mensalidade(Long id, Date emissao, Date vencimento, Date pagamento, Date cancelamento, StatusPagamento status, Double valor,
 			Aluno aluno) {
 		super();
 		this.id = id;
 		this.emissao = emissao;
 		this.vencimento = vencimento;
 		this.pagamento = pagamento;
+		this.cancelamento = cancelamento;
 		this.status = (status==null) ? null : status.getCodigo();
 		this.valor = valor;
 		this.aluno = aluno;
@@ -93,6 +100,14 @@ public class Mensalidade {
 
 	public Date getPagamento() {
 		return pagamento;
+	}
+
+	public void setCancelamento(Date cancelamento) {
+		this.cancelamento = cancelamento;
+	}
+	
+	public Date getCancelamento() {
+		return cancelamento;
 	}
 
 	public void setPagamento(Date pagamento) {
@@ -151,9 +166,9 @@ public class Mensalidade {
 	@Override
 	public String toString() {
 		return "Mensalidade [id=" + id + ", emissao=" + emissao + ", vencimento=" + vencimento + ", pagamento="
-				+ pagamento + ", status=" + status + ", valor=" + valor + ", aluno=" + aluno + "]";
+				+ pagamento + ", cancelamento=" + cancelamento + ", status=" + status + ", valor=" + valor + ", aluno="
+				+ aluno + "]";
 	}
-	
-	
+
 
 }

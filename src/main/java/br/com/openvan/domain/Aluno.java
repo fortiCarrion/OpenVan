@@ -12,8 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -67,11 +69,19 @@ public class Aluno implements Serializable {
 	private Date registro;
 	
 	@ManyToOne
-	@JoinColumn(name = "aln_colegio")
+	//@JoinTable(name = "colegio",
+	//	joinColumns = @JoinColumn(name = "aln_colegio"),
+	//	inverseJoinColumns = @JoinColumn(name = "col_id")
+	//)
+	@JoinColumn(name = "aln_colegio", nullable = false)
 	private Colegio colegio;
 	
 	@ManyToOne
-	@JoinColumn(name = "aln_veiculo")
+	//@JoinTable(name = "veiculo",
+	//	joinColumns = @JoinColumn(name = "aln_veiculo", nullable = false),
+	//	inverseJoinColumns = @JoinColumn(name = "vel_id")
+	//)
+	@JoinColumn(name = "aln_veiculo", nullable = false)
 	private Veiculo veiculo;
 	
 	@OneToMany(mappedBy = "aluno")

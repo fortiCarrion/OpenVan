@@ -98,8 +98,8 @@ public class DBService {
 		int mes = vencimento.get(Calendar.MONTH) + 1;
 		vencimento.set(ano, mes, a1.getVencimentoMensalidade());
 
-		Mensalidade men1 = new Mensalidade(null, sdf.parse("12/08/2018 10:55"), vencimento.getTime(), null, StatusPagamento.PENDENTE, a1.getValor(), a1);
-		Mensalidade men2 = new Mensalidade(null, sdf.parse("15/08/2018 18:12"), vencimento.getTime(), sdf.parse("20/08/2018 22:30"), StatusPagamento.QUITADO, a2.getValor(), a2);
+		//Mensalidade men1 = new Mensalidade(null, sdf.parse("12/08/2018 10:55"), vencimento.getTime(), null, StatusPagamento.PENDENTE, a1.getValor(), a1);
+		//Mensalidade men2 = new Mensalidade(null, sdf.parse("15/08/2018 18:12"), vencimento.getTime(), sdf.parse("20/08/2018 22:30"), StatusPagamento.QUITADO, a2.getValor(), a2);
 
 		a1.getEnderecos().addAll(Arrays.asList(e1, e4));
 		a2.getEnderecos().addAll(Arrays.asList(e2));
@@ -109,14 +109,14 @@ public class DBService {
 		a2.getContatos().addAll(Arrays.asList(con3));
 		a3.getContatos().addAll(Arrays.asList(con4));
 
-		a1.getMensalidades().addAll(Arrays.asList(men1));
+		//a1.getMensalidades().addAll(Arrays.asList(men1));
 
 		colegioRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12));
 		veiculoRepository.saveAll(Arrays.asList(v1, v2, v3,v4,v5,v6,v7,v8,v9,v10));
 		alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
 		contatoRepository.saveAll(Arrays.asList(con1, con2, con3, con4));
-		mensalidadeRepository.saveAll(Arrays.asList(men1, men2));
+		//mensalidadeRepository.saveAll(Arrays.asList(men1, men2));
 
 	}
 }

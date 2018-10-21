@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,7 +52,7 @@ public class Veiculo implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 	
-	@OneToMany(mappedBy = "veiculo")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "veiculo")
 	private List<Aluno> alunos = new ArrayList<>();
 
 	public Veiculo() {

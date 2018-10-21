@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,7 +53,7 @@ public class Colegio implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registro;
 
-	@OneToMany(mappedBy = "colegio")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "colegio")
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 
 	public Colegio() {

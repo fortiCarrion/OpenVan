@@ -1,5 +1,7 @@
 package br.com.openvan.services;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Mensalidade;
+import br.com.openvan.domain.enums.StatusPagamento;
 import br.com.openvan.dto.MensalidadeDTO;
 import br.com.openvan.repositories.MensalidadeRepository;
 import br.com.openvan.services.exceptions.ObjectNotFoundException;
@@ -37,12 +40,25 @@ public class MensalidadeService {
 	
 	public Mensalidade update(Mensalidade obj) {
 		Mensalidade newObj = find(obj.getId());
+		StatusPagamento status;
+		
+		switch (newObj.getStatus()) {
+		case PENDENTE:
+			newObj.setPagamento(new Date());	
+			break;
+		case CANCELADO:
+			newObj.setCancelamento(new Date());
+			break;
+		default:
+			break;
+			
+		}
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 	public Mensalidade fromDTO(MensalidadeDTO objDTO) {
 
-		return new Mensalidade(objDTO.getId(), objDTO.getEmissao(), objDTO.getPagamento(), objDTO.getVencimento(), objDTO.getStatus(), objDTO.getValor(), objDTO.getAluno());
+		return new Mensalidade(objDTO.getId(), objDTO.getEmissao(), objDTO.getPagamento(), objDTO.getCancelamento(), objDTO.getVencimento(), objDTO.getStatus(), objDTO.getValor(), objDTO.getAluno());
 	}
 	
 	private void updateData(Mensalidade newObj, Mensalidade obj) {

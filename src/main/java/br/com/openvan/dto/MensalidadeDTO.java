@@ -22,6 +22,9 @@ public class MensalidadeDTO {
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date vencimento;
+
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date cancelamento;
 	
 	private StatusPagamento status;
 	
@@ -37,6 +40,7 @@ public class MensalidadeDTO {
 	id = obj.getId();
 	emissao = obj.getEmissao();
 	pagamento = obj.getPagamento();
+	cancelamento = obj.getCancelamento();
 	vencimento = obj.getVencimento();
 	status = obj.getStatus();
 	valor = obj.getValor();
@@ -77,6 +81,14 @@ public class MensalidadeDTO {
 
 	public StatusPagamento getStatus() {
 		return status;
+	}
+
+	public Date getCancelamento() {
+		return cancelamento;
+	}
+
+	public void setCancelamento(Date cancelamento) {
+		this.cancelamento = cancelamento;
 	}
 
 	public void setStatus(StatusPagamento status) {
