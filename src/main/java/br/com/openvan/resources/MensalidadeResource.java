@@ -63,5 +63,12 @@ public class MensalidadeResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@RequestMapping(value = "/status/{status}", method = RequestMethod.GET)
+	public ResponseEntity<List<MensalidadeDTO>> findByStatus(@PathVariable int status) {
+		List<Mensalidade> list = service.findByStatus(status);
+		List<MensalidadeDTO> listDTO = list.stream().map(obj -> new MensalidadeDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+	
 
 }

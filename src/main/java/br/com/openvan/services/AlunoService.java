@@ -73,8 +73,7 @@ public class AlunoService {
 			x.setAluno(obj);
 			
 			enderecoRepository.saveAll(Arrays.asList(x));
-			
-				
+						
 		}
 		
 		for(Contato x : obj.getContatos()) {
@@ -97,8 +96,21 @@ public class AlunoService {
 //		newObj.setColegio(colegioService.find(obj.getColegio().getId()));
 //		newObj.setVeiculo(veiculoService.find(obj.getVeiculo().getId()));
 //		
+		System.out.println(newObj.toString());
 		updateData(newObj, obj);
 		return repo.save(newObj);	
+	}
+	
+	public Aluno update2(Aluno obj) {
+		Aluno newObj = find(obj.getId());
+		StatusAluno statusAluno;
+		
+		newObj.setStatus(obj.getStatus());
+
+		System.out.println(newObj.toString());
+		
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
 	
 	public void delete(Long id) {
@@ -123,8 +135,10 @@ public class AlunoService {
 	}
 	
 	public Aluno fromDTO(AlunoDTO objDTO) {
-		Colegio clg = new Colegio(null, 3, "Newton Guimarães", "R. Guarujá", 228, "(43) 3324-2263", "nenhum", new Date());
-		Veiculo vel = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, StatusVeiculo.ATIVO, null, new Date());
+		//Colegio clg = new Colegio(null, 3, "Newton Guimarães", "R. Guarujá", 228, "(43) 3324-2263", "nenhum", new Date());
+		//Veiculo vel = new Veiculo(null, "João Guilherme de Souza", 1, "Renault Master", 2013, StatusVeiculo.ATIVO, null, new Date());
+		Colegio clg = objDTO.getColegio();
+		Veiculo vel = objDTO.getVeiculo();
 		
 		return new Aluno(objDTO.getId(), objDTO.getNome(), objDTO.getPai(), objDTO.getMae(), objDTO.getPeriodo(), objDTO.getCelular(), objDTO.getStatus(), objDTO.getRecado(), objDTO.getValor(), objDTO.getVencimentoMensalidade(), objDTO.getRegistro(), clg, vel);
 	}

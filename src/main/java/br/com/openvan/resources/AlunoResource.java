@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.openvan.domain.Aluno;
+import br.com.openvan.domain.Mensalidade;
 import br.com.openvan.dto.AlunoDTO;
 import br.com.openvan.dto.AlunoNewDTO;
+import br.com.openvan.dto.MensalidadeDTO;
 import br.com.openvan.resources.util.URL;
 import br.com.openvan.services.AlunoService;
 
@@ -49,10 +51,10 @@ public class AlunoResource {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody Aluno obj, @PathVariable Long id){
-		//Aluno obj = service.fromDTO(objDTO);
+	public ResponseEntity<Void> update(@Valid @RequestBody AlunoDTO objDTO, @PathVariable Long id){
+		Aluno obj = service.fromDTO(objDTO);
 		obj.setId(id);
-		obj = service.update(obj);
+		obj = service.update2(obj);
 		
 		return ResponseEntity.noContent().build();
 	}

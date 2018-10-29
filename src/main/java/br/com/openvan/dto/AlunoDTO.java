@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.openvan.domain.Aluno;
+import br.com.openvan.domain.Colegio;
+import br.com.openvan.domain.Veiculo;
 import br.com.openvan.domain.enums.PeriodoAluno;
 import br.com.openvan.domain.enums.StatusAluno;
 
@@ -40,6 +42,10 @@ public class AlunoDTO implements Serializable {
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date registro;
+	
+	private Colegio colegio;
+	
+	private Veiculo veiculo;
 
 	public AlunoDTO() {
 		
@@ -56,7 +62,10 @@ public class AlunoDTO implements Serializable {
 		status = obj.getStatus();
 		valor = obj.getValor();
 		vencimentoMensalidade = obj.getVencimentoMensalidade();
+		colegio = obj.getColegio();
+		veiculo = obj.getVeiculo();
 		registro = obj.getRegistro();
+		
 	}
 
 	public Long getId() {
@@ -142,6 +151,24 @@ public class AlunoDTO implements Serializable {
 	public Date getRegistro() {
 		return registro;
 	}
+
+	public Colegio getColegio() {
+		return colegio;
+	}
+
+	public void setColegio(Colegio colegio) {
+		this.colegio = colegio;
+	}
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+	
+	
 
 //	public void setRegistro(Date registro) {
 //		this.registro = registro;

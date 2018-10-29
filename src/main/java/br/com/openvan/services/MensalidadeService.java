@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import br.com.openvan.domain.Mensalidade;
@@ -20,7 +21,6 @@ public class MensalidadeService {
 	
 	@Autowired
 	private MensalidadeRepository repo;
-	
 
 	public Mensalidade find(Long id) {
 		Optional<Mensalidade> obj = repo.findById(id);
@@ -30,6 +30,10 @@ public class MensalidadeService {
 	
 	public List<Mensalidade> findAll(){
 		return repo.findAll();
+	}
+
+	public List<Mensalidade> findByStatus(int status){
+		return repo.findByStatus(status);
 	}
 	
 	public Mensalidade insert(Mensalidade obj) {
@@ -42,8 +46,8 @@ public class MensalidadeService {
 		Mensalidade newObj = find(obj.getId());
 		StatusPagamento status;
 		
-		switch (newObj.getStatus()) {
-		case PENDENTE:
+		switch (obj.getStatus()) {
+		case QUITADO:
 			newObj.setPagamento(new Date());	
 			break;
 		case CANCELADO:
