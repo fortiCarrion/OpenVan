@@ -11,7 +11,7 @@ public class OpenvanProjectApplication implements CommandLineRunner {
 		SpringApplication.run(OpenvanProjectApplication.class, args);
 	}
 
-	@Override
+	@Override	
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		

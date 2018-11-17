@@ -35,7 +35,7 @@ public class Endereco implements Serializable{
 	
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "end_aluno")
+	@JoinColumn(name = "end_aluno", nullable = false)
 	private Aluno aluno;
 	
 	public Endereco() {
