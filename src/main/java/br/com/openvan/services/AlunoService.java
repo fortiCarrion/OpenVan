@@ -65,7 +65,7 @@ public class AlunoService {
 		obj = repo.save(obj);
 		
 		for(Endereco x : obj.getEnderecos()) {
-			x.setId(null);;
+			x.setId(null);
 			x.setEndereco(x.getEndereco());
 			x.setBairro(x.getBairro());
 			x.setNumero(x.getNumero());
@@ -107,10 +107,43 @@ public class AlunoService {
 		
 		newObj.setStatus(obj.getStatus());
 
-		System.out.println(newObj.toString());
+		for(Contato x : obj.getContatos()) {
+			if(x.getId() == null) {
+				x.setId(null); 
+			} else {x.setId(x.getId());
+			}
+			x.setReferencia(x.getReferencia());
+			x.setResidencial(x.getResidencial());
+			x.setCelular(x.getCelular());
+			x.setComercial(x.getComercial());
+			x.setAluno(obj);
+			
+			contatoRepository.saveAll(Arrays.asList(x));
+				
+		}
+
+		System.out.println("newObj" + newObj.toString());
+				
+		for(Endereco x : obj.getEnderecos()) {
+			if(x.getId() == null) {
+				x.setId(null); 
+			} else {x.setId(x.getId());
+			}
+			x.setEndereco(x.getEndereco());
+			x.setBairro(x.getBairro());
+			x.setNumero(x.getNumero());
+			x.setComplemento(x.getComplemento());
+			x.setAluno(obj);
+			
+			enderecoRepository.saveAll(Arrays.asList(x));
+						
+		}
+		
+		System.out.println("newObj2" + newObj.toString());
 		
 		updateData(newObj, obj);
-		return repo.save(newObj);
+		repo.save(newObj);
+		return newObj;
 	}
 	
 	public void delete(Long id) {
